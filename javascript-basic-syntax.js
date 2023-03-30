@@ -21,11 +21,13 @@ console.log(sum);
 
 
 // 3. Use the shorthand to add 1 to a number
-sum += 1;
+//sum += 1;
+sum+++
 console.log(sum);
 
 // 4. Use the shorthand to remove 1 from a number
-sum -= 1;
+//sum -= 1;
+sum---
 console.log(sum);
 
 // 5. Concatenate two string
@@ -38,6 +40,7 @@ console.log(concatenate);
 // 6. Create an IF statement which checks if a variable matches another variable, 
 //if so it should console log a message
 
+
 if (myAge >= 35) {
     console.log(true);
 }
@@ -48,6 +51,24 @@ else {
 
 41
 
+//Correction
+
+let time;
+let lunchTime;
+
+function checkTime(time, lunchTime) {
+
+if (time === lunchTime) {
+    console.log ('Time to have lunch');
+}
+
+else {
+    console.log('Time to rest.');
+};
+
+}
+
+checkTime(12, 12);
 
 // 7. Extend one of the IF statements to check if two things are true, 
 //if so show a message
