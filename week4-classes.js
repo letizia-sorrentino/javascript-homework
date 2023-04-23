@@ -51,13 +51,10 @@ console.log(Pet.newFood);
 const baloo2 = new Pet ('dog', 'Baloo', 'woof', 'chicken', 'fish');
 console.log(baloo2.eat());
 
-
-
-
 //Create an instance of the final class
 const _instanceOfPet = new Pet ('pet','Baloo', 'Woof', 'chicken');
 Pet.prototype.isHungry = function () { 
-    //console.log(this.name, 'is hungry.');
+    //console.log(_instanceOfPet.firstName, "is hungry.");
     return `My ${this.animalType} ${this.firstName} says: "${this.bark}! I am hungry and I want ${this.food}!"`
 }
 
