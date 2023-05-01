@@ -60,7 +60,7 @@ const date2 = new Date(
 console.log("date2", date2);
 
 function dateCompare() {
-  if (date1 > date2) {
+  if (date1.getTime() > date2.getTime()) {
     console.log(`${date1} is greater than ${date2}`)
   } else if (date1 < date2) {
     console.log(`${date2} is greater than ${date1}`)
@@ -116,6 +116,20 @@ function startTime() {
 
 startTime();
 
+//Jon Solution
+let now = new Date();
+let timeStamp = now.getTime();
+
+
+function tick() {
+  timeStamp += 1000;
+  console.log(timeStamp);
+  let dateTime = new Date(timeStamp);
+  console.log(dateTime);
+}
+
+const clock = setInterval(tick, 1000);
+
 // 12. Create a copy of today
 const newDay = new Date(today.getTime());
 
@@ -127,6 +141,12 @@ const d = newDay.setDate(day + 1);
 
 console.log(newDay);
 
+//Jon solution using variables from a much earlier part of the code:
+//today = new Date();
+//today.setFullYear(today.getFullYear() + 3);
+//today.setMonth(today.getMonth() + 2);
+//today.setDate(today.getDate() + 1);
+
 // 14. Get your timezone from today (remember it's in mins and the sign is inverted)
 const UTC_Offset = today.getTimezoneOffset();
 console.log(UTC_Offset);
@@ -137,23 +157,31 @@ console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'lo
 
 // 16. Write a function that creates a years/months/days/hours/mins/secs/ms duration in ms.
 
-const timeDuration = new Date();
-
-const years = timeDuration.getFullYear();
-const days = timeDuration.getDay();
-const months = timeDuration.getMonth();
-const hours = timeDuration.getHours();
-const mins = timeDuration.getMinutes();
-const secs = timeDuration.getSeconds();
-const mSecs = timeDuration.getMilliseconds();
-
-
-function msTime() {
-  const milliseconds = new Date(timeDuration);
-  return milliseconds.getTime();
-}
-
-console.log(msTime());
+function createDuration(
+  years = 0,
+  days = 0,
+  hours = 0,
+  mins = 0,
+  secs = 0,
+  ms = 0
+) {
+  console.log(
+    `Creating a duration of: ${years} years, ${days} days, ${hours} hours, ${mins} mins, ${secs} secs, ${ms} ms`
+  );
+  const oneSecond = 1000; // because one second is 1000 milliseconds
+  const oneMin = oneSecond * 60;
+  const oneHour = oneMin * 60;
+  const oneDay = oneHour * 24;
+  const oneYear = oneDay * 365;
+  return (
+    ms +
+    secs * oneSecond +
+    mins * oneMin +
+    hours * oneHour +
+    days * oneDay +
+    years * oneYear
+  );
+};
 
 // 17. Write a function that returns an object with the years/months/days/hours/mins/secs/ms between 2 dates
 

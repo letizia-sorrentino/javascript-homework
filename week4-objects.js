@@ -54,9 +54,11 @@ console.log(newAnimal);
 
 //10. Send 5 arguments to a function and use the rest operator to group them
 const args = { a: 'A', b: 'B', c: 'C', d: 'D', e: 'E' };
-const spread = () => {
+
+const spread = (...args) => {
     return args;
 }
+
 console.log(spread());
 
 //11. Add a function to one of the objects, use the object method shorthand.  

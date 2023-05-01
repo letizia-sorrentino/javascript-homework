@@ -17,7 +17,7 @@ function first() {
 
         function third() {
             let three = 'three';
-            var four = 'four';
+            four = 'four';
             console.log(one, two, three, four);
 
             {
@@ -50,19 +50,19 @@ const car = {
 }
 
 // 8. Create a function outside the object which returns the make/model of the car
-
-car.type = function () {
+const type = function () {
     return this.make + " " + this.model;
 };
 
 // 9. Insert a reference to the function into the object created
-Object.defineProperty(car, 'type', function () { return this.make + " " + this.model });
+//Object.defineProperty(car, 'type', {type: type});
+car.type = type;
 
 // 10. Invoke the method on the object (you should see the make/model)
-console.log(car.type());
+console.log(car.type);
 
 // 11. Use call to execute the function using a different context
-console.log(car.type.call(car));
+console.log(car.type.call({make: 'FIAT', model: '500',}));
 
 // 12. Use bind to create an instance of the function that is bound to a different object
 const car2 = {
@@ -70,7 +70,7 @@ const car2 = {
     model: '500',
 };
 
-let type = car.type.bind(car2);
+let type2 = car.type.bind(car2);
 
 console.log(car.type.call(car2));
 
@@ -101,9 +101,9 @@ const myTimer = setTimeout(handler, 1 * 200);
 console.log('Handler ran many times.');
 
 // 16. Clear one of the timers
-setTimeout(function () {
-    clearInterval(myTimer), 1500
-})
+setTimeout(function () { 
+    clearInterval(myTimer)
+}, 1500)
 
 // 17. Use a ternary
 const weather = 'rain';

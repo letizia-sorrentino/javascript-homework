@@ -7,6 +7,7 @@ console.log(rainbowArray);
 
 // 3. Delete half of the array
 rainbowArray.splice(5, 5);
+//or rainbowArray.lenght = 5;
 console.log(rainbowArray);
 
 // 4. Write out each of the array methods so you become familiar with the syntax (use the array you made earlier)   
@@ -58,12 +59,12 @@ console.log(rainbowArray.includes('yellow'));
 //indexOf
 console.log(rainbowArray.indexOf('grey'));
 
-//Every - TO BE DOUBLE-CHECKED
-const checkRainbow = (colour) => {colour.lenght > 2 };
+//Every 
+const checkRainbow = (colour) => colour.length > 2;
 console.log(rainbowArray.every(checkRainbow));
 
-//Some - TO BE DOUBLE-CHECKED
-const checkColours = (colour) => {colour === 'orange'};
+//Some 
+const checkColours = (colour) => colour === 'orange';
 console.log(rainbowArray.some(checkColours));
 
 //Filter
