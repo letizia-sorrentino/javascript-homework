@@ -1,1 +1,1 @@
-# javascript-homework
+# vanilla-javascript-homework
